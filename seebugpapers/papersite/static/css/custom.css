@@ -1,0 +1,143 @@
+@media (min-width: 1280px) {
+  .hamburger {
+    position: fixed;
+    top: 20px;
+    left: 330px;
+    z-index: 999;
+    display: block;
+    width: 32px;
+    height: 32px;
+    margin-left: 15px;
+    background: transparent;
+    border: none;
+  }
+
+  .hamburger:hover,
+  .hamburger:focus,
+  .hamburger:active {
+    outline: none;
+  }
+
+  .hamburger.is-closed:before {
+    content: '';
+    display: block;
+    width: 100px;
+    font-size: 14px;
+    color: #fff;
+    line-height: 32px;
+    text-align: center;
+    opacity: 0;
+    -webkit-transform: translate3d(0, 0, 0);
+    -webkit-transition: all .1s ease-in-out;
+  }
+
+  .hamburger.is-closed:hover:before {
+    opacity: 1;
+    display: block;
+    -webkit-transform: translate3d(-100px, 0, 0);
+    -webkit-transition: all .1s ease-in-out;
+  }
+
+  .hamburger.is-closed .hamb-top,
+  .hamburger.is-closed .hamb-middle,
+  .hamburger.is-closed .hamb-bottom {
+    position: absolute;
+    left: 0;
+    height: 4px;
+    width: 100%;
+  }
+
+  .hamburger.is-closed .hamb-top,
+  .hamburger.is-closed .hamb-middle,
+  .hamburger.is-closed .hamb-bottom {
+    background-color: #1a1a1a;
+  }
+
+  .hamburger.is-closed .hamb-top {
+    top: 5px;
+    -webkit-transition: all .1s ease-in-out;
+  }
+
+  .hamburger.is-closed .hamb-middle {
+    top: 50%;
+    margin-top: -2px;
+  }
+
+  .hamburger.is-closed .hamb-bottom {
+    bottom: 5px;
+    -webkit-transition: all .1s ease-in-out;
+  }
+
+  .hamburger.is-closed:hover .hamb-top {
+    top: 0;
+    -webkit-transition: all .1s ease-in-out;
+  }
+
+  .hamburger.is-closed:hover .hamb-bottom {
+    bottom: 0;
+    -webkit-transition: all .1s ease-in-out;
+  }
+
+  #sidebar {
+    -webkit-transition: all 0.35s ease;
+    -moz-transition: all 0.35s ease;
+    -o-transition: all 0.35s ease;
+    transition: all 0.35s ease;
+  }
+
+  #wrapper.toggled #sidebar .hamburger.is-closed {
+    left: 0;
+  }
+
+  #sidebar::-webkit-scrollbar {
+    display: none;
+  }
+
+  #wrapper.toggled #sidebar {
+    width: 0;
+  }
+
+  #page-content-wrapper {
+    width: 100%;
+  }
+
+  #wrapper.toggled main {
+    position: absolute;
+    left: 0;
+  }
+
+  #wrapper.toggled main .main-inner {
+    max-width: initial;
+  }
+
+}
+
+@media (max-width: 1279px) {
+  .hamburger,
+  .post-print
+  {
+    display: none;
+  }
+
+}
+
+.post-footer .author {
+  margin-top: 20px;
+  margin-right: 0;
+  text-align: center;
+}
+
+.post-print a{
+  color: #9EABB3;
+}
+.post-print a:hover{
+  color: #22313F;
+}
+.post-print {
+  float: right;
+  color: #9EABB3;
+  margin-top: 10px;
+}
+p, li {
+  word-wrap: break-word;
+}

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>先知社区</title>
+    <meta name="description" content="先知社区，先知安全技术社区">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="icon" href="static/icon/favicon.ico" type="image/x-icon">
+    <!-- Le styles -->
+    <link href="static/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="static/css/OverlayStyle.css">
+    <link rel="stylesheet" href="static/editor.md/css/editormd.min.css">
+    <link rel="stylesheet" href="static/css/bbs/tango.css">
+    <link rel="stylesheet" href="static/css/topic.css">
+    <link rel="stylesheet" href="static/css/beautify.css">
+    <link href="static/css/bootstrap-responsive.min.css" rel="stylesheet">
+
+    <!--[if lte IE 8]>
+        <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <![endif]-->
+    <!--[if !IE]> -->
+    <script type="text/javascript" src="static/js/jquery-2.1.3.min.js"></script>
+    <!-- <![endif]-->
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/xz.js"></script>
+
+</head>
+
+<body>
+    <!-- navbar begin -->
+    <div class="navbar navbar-default">
+        <div class="navbar-inner">
+            <div class="container" style="text-align: center;">
+                <!--[if lte IE 8]>
+            <span style="display:inline-block;margin:0 auto;color:red;">为了更好的体验，请使用IE10及以上版本</span>
+            <![endif]-->
+                <div class="brand-box">
+                    <a class="brand" href="/"></a>
+                </div>
+
+                <a href="https://account.aliyun.com/login/login.htm?oauth_callback=https%3A%2F%2Fxz.aliyun.com%2F%3Fpage%3D32&amp;from_type=xianzhi"
+                    class="pull-right anonymous-user hh_loding">
+                    登录</a>
+
+                <div class="nav-collapse collapse">
+                    <div class="search d1">
+                        <form method="get" action="/">
+                            <input type="text" placeholder="" name="keyword">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- navbar end -->
+    <!-- main content begin -->
+    <div id="Wrapper" class="container">
+        <div class="row">
+            <div class="span11">
+                <div class="home-list">
+                    <div class="row box">
+                        <div id="includeList">
+                            <table class="table topic-list">
+                                {% for x in contents %}
+                                <tr>
+                                    <td>
+                                        <div class="pull-left avatar-container">
+                                            <a class="user-link" href="#">
+                                                <img class="avatar tiny-avatar" src="full/abc451300b12bfc40d66c9319da4ba986d51be75.jpg" alt="{{x['author']}}">
+                                            </a>
+                                        </div>
+                                        <p class="topic-summary">
+                                            <a class="topic-title" href="/{{x["tid"]}}.html">
+                                                {{ x["title"] }} </a>
+                                        </p>
+                                        <p class="topic-info">
+                                            <a href="/search?author={{ x['author'] }}{{arg}}">{{ x['author'] }}</a> /
+                                            <a href="/search?category={{ x['category'] }}{{arg}}">{{ x['category'] }}</a> / {{ x["date"] }}
+                                            <span class="pull-right">
+                                                <span class="badge badge-hollow text-center ">{{ x.get("comment_count",0) }}</span>
+                                            </span>
+                                        </p>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
+                        <div class="pagination clearfix">
+                            <ul class="pull-right">
+                                <li>
+                                    {% if page -1 >0 %}
+                                    <a href="?page={{page-1}}{{arg}}">上一页</a>
+                                    {% endif %}
+                                </li>
+                                <li class="disabled">
+                                    <a class="active">{{page}}/{{pages}}</a>
+                                </li>
+                                <li>
+                                    {% if page+1 <= pages%}
+                                    <a href="?page={{page +1 }}{{arg}}">下一页</a>
+                                    {% endif %}
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+    </div>
+    <footer class="bs-docs-footer">
+        <div class="container text-center">
+            <div class="links">
+                <a href="/feed" target="_blank">RSS</a>
+                <a href="/about" target="_blank">
+                    <span>关于社区</span>
+                </a>
+                <a href="/partner" target="_blank">
+                    <span>友情链接</span>
+                </a>
+                <a href="/notice">社区小黑板</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+
+<script src="https://s11.cnzz.com/z_stat.php?id=1260716569&web_id=1260716569" language="JavaScript"></script>
+
+</html>
